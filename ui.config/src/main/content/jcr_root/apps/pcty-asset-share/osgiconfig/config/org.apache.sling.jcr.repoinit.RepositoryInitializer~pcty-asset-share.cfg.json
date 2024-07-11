@@ -1,0 +1,7 @@
+{
+    "scripts": [
+        "create path (sling:OrderedFolder) /content/dam/pcty-asset-share",
+        "create path (nt:unstructured) /content/dam/pcty-asset-share/jcr:content",
+        "set properties on /content/dam/pcty-asset-share/jcr:content\n  set cq:conf{String} to /conf/pcty-asset-share\n  set jcr:title{String} to \"Paylocity Asset Share\"\nend"
+    ]
+}
