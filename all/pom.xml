@@ -77,6 +77,13 @@
                             <type>zip</type>
                             <target>/apps/pcty-asset-share-packages/application/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem.commons</groupId>
+                            <artifactId>assetshare.all</artifactId>
+                            <classifier>cloud</classifier>
+                            <type>zip</type>
+                            <target>/apps/pcty-asset-share-vendor-packages/container/install</target>
+                        </embedded>
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -194,6 +201,12 @@
             <groupId>com.pctyassetshare</groupId>
             <artifactId>pcty-asset-share.ui.config</artifactId>
             <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem.commons</groupId>
+            <artifactId>assetshare.all</artifactId>
+            <classifier>cloud</classifier>
             <type>zip</type>
         </dependency>
 

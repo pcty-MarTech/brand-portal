@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
     <filter root="/conf/pcty-asset-share" mode="merge"/>
+    <filter root="/content/brand-portal" mode="merge"/>
+    <filter root="/content/dam/asset-share-commons/" mode="merge"/>
 </workspaceFilter>
