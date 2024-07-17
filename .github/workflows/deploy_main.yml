@@ -1,0 +1,27 @@
+name: Push to Adobe Brand Portal
+on:
+  push:
+    branches: [ main ]
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+          ref: 'main'
+      - name: Push to Adobe
+        run: |
+          git remote add adobe https://${{ secrets.ADOBE_USERNAME }}:${{ secrets.ADOBE_PASSWORD }}@git.cloudmanager.adobe.com/paylocity/PAYLOCITYCORPORATIONProgram-p116368-uk11294/
+          git checkout main
+          git push -u adobe main:brand-portal -f
+      - name: Get current date
+        id: date
+        run: echo "$(date +'%Y-%m-%d.%H-%M-%S')" > current_date.txt
+      - name: Create Release Tag
+        run: |
+          tag="v1.$(cat current_date.txt)"
+          git tag "$tag"
+          git push origin "$tag"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
